@@ -28,7 +28,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void save(Customer customer) {
-
         customers.put(customer.getId(), customer);
     }
 
@@ -40,7 +39,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void update(int id, Customer customer) {
         customers.put(id, customer);
-
     }
 
     @Override
