@@ -4,30 +4,22 @@
 </head>
 <body>
 <h3>Customers</h3>
-<p>
-    <a th:href="@{/customer/create}">
-        Add new customer
-    </a>
-</p>
+<a th:href="@{/customer/create}">
+    Create new customer
+</a>
+<a th:href="@{/}">
+    Back to customer list
+</a>
 
 <p>
-<div class="container">
-    <!-- For demo purpose -->
-
-    <div class="row mb-5">
-        <div class="col-lg-8 mx-auto">
-            <div class="bg-white p-5 rounded shadow">
-                <form action="">
-                        <div class="input-group">
-                            <label>
-                                <input type="search" id="name" placeholder="Nhập từ bạn cần tìm?">
-                            </label>
-                            <input type="button" value="search" th:href="/customer/${}/search">
-                        </div>
-                </form>
-            </div>
-        </div>
-    </div>
+<div id="form1">
+    <form action="#" th:action="@{/customer/search}"
+          method="GET" novalidate="novalidate">
+        <label>
+            <input type="text" name="input" id="input">
+            <button type="submit" style="height: 40px; width: 70px">Search</button>
+        </label>
+    </form>
 </div>
 </p>
 <table id="customers">
@@ -58,6 +50,12 @@
         <span th:text="${success}"></span>
     </div>
 </div>
+<!--<script th:replace="/fg_script :: scriptABC"></script>-->
+
+<th:block th:replace="/fg_script :: scriptAbc">
+    
+</th:block>
+
 <footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

@@ -2,13 +2,11 @@ package com.codegym.service;
 
 import com.codegym.model.Customer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CustomerServiceImpl implements CustomerService {
     private static Map<Integer, Customer> customers;
+    private static Map<Integer, Customer> customers1;
 
     static {
 
@@ -19,12 +17,25 @@ public class CustomerServiceImpl implements CustomerService {
         customers.put(4, new Customer(4, "Adam", "adam@codegym.vn", "Beijin"));
         customers.put(5, new Customer(5, "Sophia", "sophia@codegym.vn", "Miami"));
         customers.put(6, new Customer(6, "Rose", "rose@codegym.vn", "Newyork"));
+
+        customers1 = new HashMap<>();
     }
 
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
     }
+
+//    public List<Customer> findByName(String name) {
+//        List<Customer> customers = findAll();
+//        for (int i = 0; i < customers.size(); i++) {
+//            String str = customers.get(i + 1).getName();
+//            if (Objects.equals(str, name)){
+//                customers1.add(customers.get(i + 1));
+//            }
+//        }
+//        return customers1;
+//    }
 
     @Override
     public void save(Customer customer) {

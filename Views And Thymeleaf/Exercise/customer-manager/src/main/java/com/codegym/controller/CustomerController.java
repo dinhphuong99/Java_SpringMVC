@@ -22,11 +22,13 @@ public class CustomerController {
     private CustomerService customerService = new CustomerServiceImpl();
 
     @RequestMapping("/")
-    public ModelAndView index(Model model) {
+    public ModelAndView index() {
 
         List<Customer> customerList = customerService.findAll();
-        ModelAndView modelAndView =  new ModelAndView("/index");
+        ModelAndView modelAndView =  new ModelAndView();
+        modelAndView.setViewName("/index");
         modelAndView.addObject("customers", customerList );
+        modelAndView.addObject("success", "" );
         return modelAndView;
     }
 
@@ -38,7 +40,7 @@ public class CustomerController {
 
     @PostMapping("/customer/save")
     public String save(Customer customer) {
-        customer.setId((int)(Math.random() * 10000));
+        customer.setId((int)(Math.random() * 100));
         customerService.save(customer);
         return "redirect:/";
     }
