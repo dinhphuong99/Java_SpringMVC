@@ -1,16 +1,17 @@
 package com.codegym.model;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.*;
 
 public class User {
 
-    @NotEmpty
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 30, message = "Size 2 to 30")
     private String name;
 
     @Min(18)
+    @Max(90)
+    @NumberFormat
     private int age;
 
     public User() {
